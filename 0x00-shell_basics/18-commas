@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(ls -XFamr)"
+echo "$(ls -a -m -p)"
