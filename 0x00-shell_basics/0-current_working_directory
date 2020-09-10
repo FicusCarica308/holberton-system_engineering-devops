@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This script contains a shell funcion that prints the working directory of the 0x00-shell_basics Project
+
+echo /home/vagrant/holberton-system_engineering-devops/0x00-shell_basics
