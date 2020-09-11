@@ -1,2 +1,2 @@
 #!/bin/bash 
-usermod - 1000 betty
+sudo usermod -l betty vagrant
