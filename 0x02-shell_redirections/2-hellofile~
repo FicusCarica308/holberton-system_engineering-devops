@@ -1,2 +1,0 @@
-B#!/bin/bash
-echo "$(less /etc/passwd)"
