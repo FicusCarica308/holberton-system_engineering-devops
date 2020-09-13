@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(head -2 iacta)
+echo "$(head -2 iacta)"
