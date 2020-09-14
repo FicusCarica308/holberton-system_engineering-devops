@@ -1,2 +1,2 @@
 #!/bin/bash
-tail -n 1 test >> test
+echo "$(tail -n 1 test)" >> test
