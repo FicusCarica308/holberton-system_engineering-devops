@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#prints the content of the file /etc/passwd (just username, ID, and home dir)
+output=sudo cat /etc/passwd
+while read LINE; do
+    echo "$LINE" | cut -d ':' -f 1,4,6
+done < /etc/passwd
