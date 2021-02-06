@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #prints 1-20 (4th, 9th, and 12th iterations print custom messages)
 hs="holbertonschool"
-if [ -e "$hs" ]; then
+if [ -e $hs ]; then
     echo "$hs file exists"
-    if [ -s "$hs" ]; then
+    if [ -s $hs ]; then
         echo "$hs file is not empty"
     else
         echo "$hs file is empty"
     fi
-    if [ -f "$hs"]; then
+    if [ -f $hs ] ; then
         echo "$hs is a regular file"
     fi
 else
