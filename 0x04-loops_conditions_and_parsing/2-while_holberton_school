@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#prints "Holberton School" 10 times in stdout
+a=0
+while [ $a -le 9 ]; do
+    echo $"Holberton School"
+    a=$((a+1))
+done
