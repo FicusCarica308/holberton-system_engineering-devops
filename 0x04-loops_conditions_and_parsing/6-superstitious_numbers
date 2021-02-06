@@ -3,12 +3,16 @@
 iter=1
 while [ $iter -le 20 ]; do
     echo $iter
-    if [ $iter == 4 ]; then
-        echo "bad luck from China"
-    elif [ $iter == 9 ]; then
-        echo "bad luck from Japan"
-    elif [ $iter == 17 ]; then
-        echo "bad luck from Italy"
-    fi
+    case $iter in
+        "4")
+            echo "bad luck from China"
+        ;;
+        "9")
+            echo "bad luck from Japan"
+        ;;
+        "17")
+            echo "bad luck from Italy"
+        ;;
+    esac
     iter=$((iter+1))
 done
