@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#prints "Holberton School" for every iteration except 4 where "bad luck" is and 8 where "good luck" is
+iter=1
+while [ $iter -lt 10 ]; do
+    if [ $iter == 4 ]; then
+        echo "bad luck"
+    elif [ $iter == 8 ]; then
+        echo "good luck"
+    fi
+    echo "Holberton School"
+    iter=$((iter+1))
+done
