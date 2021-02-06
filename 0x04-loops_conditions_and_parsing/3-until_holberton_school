@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#prints "Holberton School" 10 times in stdout
+iter=0
+until [ ! $iter -lt 10 ]; do
+    echo $"Holberton School"
+    iter=$((iter+1))
+done
