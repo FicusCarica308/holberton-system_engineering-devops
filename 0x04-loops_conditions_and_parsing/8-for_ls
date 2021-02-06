@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#prints output of ls command in list format using for loop
+#prints output of ls command in list format using for loop without [num]- in front
 for iter in $(ls); do
-    echo $iter
+    echo "$iter" | cut -d "-" -f 2
 done
