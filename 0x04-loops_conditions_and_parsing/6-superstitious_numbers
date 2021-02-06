@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#prints 1-20 (4th, 9th, and 12th iterations print custom messages)
+iter=1
+while [ $iter -le 20 ]; do
+    echo $iter
+    if [ $iter == 4 ]; then
+        echo "bad luck from China"
+    elif [ $iter == 9 ]; then
+        echo "bad luck from Japan"
+    elif [ $iter == 17 ]; then
+        echo "bad luck from Italy"
+    fi
+    iter=$((iter+1))
+done
