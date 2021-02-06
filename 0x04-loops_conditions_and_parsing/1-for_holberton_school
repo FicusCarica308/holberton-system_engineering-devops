@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+for iter in {0..10}; do
+    echo Holberton School
+done
