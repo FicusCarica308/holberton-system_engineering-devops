@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#prints "Holberton School" 10 times in stdout but on the 9th iteration prints "hi"
+for iter in {0..9}; do
+    if [ $iter == 9 ]
+    then
+        echo $"hi"
+    fi
+    echo $"Holberton School"
+done
