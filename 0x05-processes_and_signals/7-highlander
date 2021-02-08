@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-#Bash script that stops 4-to_infinity_and_beyond process.
-pkill -f 4-to_infinity_and_beyond
+#Bash script that displays To infinity and beyond indefinitely. but cannot be closed
+trap 'echo I am invincible!!!' SIGTERM
+a=0
+while [ $a -lt 1 ]; do
+    echo "To infinity and beyond"
+    sleep 2
+done
