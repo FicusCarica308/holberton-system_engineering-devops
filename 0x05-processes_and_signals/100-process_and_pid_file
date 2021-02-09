@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Creates the file /var/run/holbertonscript.pid thats runs forever
+trap 'I hate the kill command' SIGTERM
+trap 'Y U no love me?!' SIGINT
+trap 'rm /var/run/holbertonscript.pid; exit' SIGQUIT
+echo $$ > "/var/run/holbertonscript.pid"
+a=0
+while [ $a -lt 1 ]; do
+    echo "To infinity and beyond"
+    sleep 2
+done
