@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 # Pings a given IP address by using ICMP(Internet Control Message Protocol) to see if the device is available (PINGS 5 times) prints message if no ip is passed
 if [ $# -eq 0 ]; then
     echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
