@@ -1,10 +1,10 @@
-# This manifest will edit the ~/etc/ssh/ssh_config file with given settings
-file { '/etc/ssh/ssh_config':
-  content => "Host *
-    PasswordAuthentication no
-    IdentityFile ~/.ssh/holberton
-    SendEnv LANG LC_*
-    HashKnownHosts yes
-    GSSAPIAuthentication yes
-    GSSAPIDelegateCredentials no\n"
+# This manifest will edit the ~/etc/ssh/ssh_config file and add these lines if not already there
+include stdlib
+file_line{'Turn off passwd auth':
+    path => '/etc/ssh/ssh_config',
+    line => 'PasswordAuthentication no',
+}
+file_line{'Declare identity file':
+    path => '/etc/ssh/ssh_config',
+    line => 'IdentityFile ~/.ssh/holberton',
 }
