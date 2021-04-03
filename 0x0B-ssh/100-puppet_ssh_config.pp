@@ -6,5 +6,5 @@ file { '/etc/ssh/ssh_config':
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes
-    GSSAPIDelegateCredentials no"
+    GSSAPIDelegateCredentials no\n"
 }
