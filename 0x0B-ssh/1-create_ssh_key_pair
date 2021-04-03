@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bash script that creates a RSA key pair holberton and holberton<private> holberton.pub
+ssh-keygen -f holberton -t rsa -b 4096 -N betty
