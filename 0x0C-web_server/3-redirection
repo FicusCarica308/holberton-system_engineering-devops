@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# installs nginx on the server this script is run on <set to listen on port 80> <returns "Holberton School" on curl>
+# sets a 301 redirection for /redirect_me file in default server configuration
+# installing nginx https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
+# setup https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+
+# installing nginx =====
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Enables firewall to port 80 / sets up defualt page
+sudo ufw allow 'Nginx HTTP' # enables firewall to port 80
+echo "Holberton School" | sudo tee /var/www/html/index.html
+
+# sets up redirection for /redirect_me file
+site_redirect="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+search_string="root /var/www/html;"
+append_string="\trewrite ^/redirect_me $site_redirect permanent;"
+file_path="/etc/nginx/sites-available/default"
+sudo sed -i "/$search_string/a $append_string" $file_path
+
+# restarts to save changes
+sudo service nginx restart
