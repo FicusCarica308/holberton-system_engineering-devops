@@ -16,7 +16,7 @@ echo "Holberton School" | sudo tee /var/www/html/index.html
 site_redirect="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 append_string="\trewrite ^/redirect_me $site_redirect permanent;"
 file_path="/etc/nginx/sites-available/default"
-sudo sed -i "/listen [::]:80 default_server;/a $append_string" $file_path
+sudo sed -i "/listen 80 default_server/a $append_string" $file_path
 
 # restarts to save changes
 sudo service nginx restart
