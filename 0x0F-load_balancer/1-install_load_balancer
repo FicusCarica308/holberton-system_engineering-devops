@@ -2,8 +2,8 @@
 # Installs and configures HAproxy
 
 # installation <package version 1.6-stable>
-apt-get update
-apt-get install haproxy=1.6.\*
+apt-get -y update
+apt-get -y install haproxy=1.6.\*
 
 # sets up front end for stat monitoring of backend
 echo -e "\nfrontend web-frontend\n \tbind *:80\n \tstats uri /haproxy?stats\n \tdefault_backend web-backend" >> /etc/haproxy/haproxy.cfg
