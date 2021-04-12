@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Installs and configures HAproxy
+
+# installation <package version 1.6-stable>
+apt-get update
+apt-get install haproxy=1.6.\*
+
