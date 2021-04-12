@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# installs nginx on the server this script is run on <set to listen on port 80> <returns "Holberton School" on curl>
+# sets a 301 redirection for /redirect_me file in default server configuration
+# installing nginx https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
+# setup https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+
+# sets up redirection for /redirect_me file
+file_path="/etc/nginx/sites-available/default"
+append_string="add_header X-Served-By $(hostname);"
+sudo sed -i "/listen \[::\]:80 default_server/a $append_string" $file_path
+
+# restarts to save changes
+sudo service nginx restart
