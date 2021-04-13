@@ -1,8 +1,7 @@
 # This manifest handles the task of creating a custom HTTP header response
-$commands = 'sudo apt-get -y update; sudo apt-get -y install nginx'
 exec {'Install nginx':
     path    => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
-    command => $commands
+    command => 'sudo apt-get -y update; sudo apt-get -y install nginx'
 }
 file_line {'Http header':
     path    => '/etc/nginx/sites-available/default',
@@ -13,5 +12,5 @@ file_line {'Http header':
 exec {'Restart nginx':
     path    => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
     command => 'sudo service nginx restart',
-    require => Exec['Install nginx'],
+    require => File_line['Http header'],
 }
