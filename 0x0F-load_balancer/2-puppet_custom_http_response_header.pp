@@ -1,4 +1,5 @@
 # This manifest handles the task of creating a custom HTTP header response
+# does not setup server like task 0 just the custom header !!!!
 exec {'Install nginx':
     path    => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
     command => 'sudo apt-get -y update; sudo apt-get -y install nginx'
