@@ -1,3 +1,25 @@
 #!/usr/bin/env bash
-echo "$(dig $2)"
-echo "The subdomain $2 is a [RECORD_TYPE] record and points to [DESTINATION]"
+
+info(){
+    if [ $# -eq 1 ]; then
+        dig_string="dig $1"
+    elif [ $# -eq 2 ]; then
+        dig_string="dig $2.$1"
+    fi
+    dig_output="$($dig_string | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}')"
+    type="$(echo $dig_output | awk '{print $1}')"
+    destination="$(echo $dig_output | awk '{print $2}')"
+}
+
+if [ $# -eq 1 ]; then
+    subs=("www" "lb-01" "web-01" "web-02")
+    for dom in "${subs[@]}"; do
+        info $1 $dom
+        echo "The subdomain $dom is a $type record and points to $destination"
+    done
+    # only domain was passed
+elif [ $# -eq 2 ]; then
+    info $1 $2
+    echo "The subdomain $2 is a $type record and points to $destination"
+    # both domain and sub-domain are passed
+fi
