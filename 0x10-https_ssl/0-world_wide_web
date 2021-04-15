@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "$(dig $2)"
+echo "The subdomain $2 is a [RECORD_TYPE] record and points to [DESTINATION]"
