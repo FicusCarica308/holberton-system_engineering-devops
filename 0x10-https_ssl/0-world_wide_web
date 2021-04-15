@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+# passing 1:domain and 2:subdomain parameters, display information for the specified subdomain
+# only the parameter domain is provided, display information for its subdomains www, lb-01, web-01 and web-02
 info(){
     if [ $# -eq 1 ]; then
         dig_string="dig $1"
