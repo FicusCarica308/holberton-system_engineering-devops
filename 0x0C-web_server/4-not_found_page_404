@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# installs nginx on the server this script is run on <set to listen on port 80> <returns "Holberton School" on curl>
+# sets a 301 redirection for /redirect_me file in default server configuration
+# sets a custom 404 page not found page
+# installing nginx https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
+# setup https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+# must be run with root privleges (sudo)
+
+file_path="/etc/nginx/sites-available/default"
+
+# installing nginx =====
+apt-get -y update
+apt-get -y install nginx
+
+# Enables firewall to port 80 / sets up defualt page
+ufw allow 'Nginx HTTP' # enables firewall to port 80
+echo "Holberton School" > /var/www/html/index.html
+
+# sets up redirection for /redirect_me file
+site_redirect="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+append_rewrite="rewrite ^/redirect_me $site_redirect permanent;"
+sed -i "/listen \[::\]:80 default_server/a $append_rewrite" $file_path
+
+# sets up 404 page
+append_error="error_page 404 /404.html;"
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sed -i "/listen \[::\]:80 default_server/a $append_error" $file_path
+
+# restarts to save changes
+service nginx restart

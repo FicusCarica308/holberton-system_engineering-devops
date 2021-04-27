@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Installs and configures HAproxy
+
+# installation <package version 1.6-stable>
+apt-get -y update
+apt-get -y install haproxy=1.6.\*
+
+# sets up front end for stat monitoring of backend
+echo -e "\nfrontend web-frontend\n \tbind *:80\n \tmode http\n \tdefault_backend web-backend" >> /etc/haproxy/haproxy.cfg
+
+# sets up back end for redirections
+echo -e "\nbackend web-backend\n \tbalance roundrobin\n \tserver 2216-web-01 35.185.53.142:80 check\n \tserver 2216-web-02 34.73.117.146:80 check" >> /etc/haproxy/haproxy.cfg
+
+# allows for HAproxy to be managed or started via an init script
+echo "ENABLED=1" >> /etc/default/haproxy
+
+service haproxy restart

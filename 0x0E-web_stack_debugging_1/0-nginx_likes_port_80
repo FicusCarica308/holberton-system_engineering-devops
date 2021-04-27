@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# nginx would not start / restart because sites-enabled/default was not a symbolink to sites-avaliable/default
+# shell script removes default file in sites-enabled and adds symbolink to sites-avaliable/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart

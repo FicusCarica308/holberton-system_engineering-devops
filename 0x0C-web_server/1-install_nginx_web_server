@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# installs nginx on the server this script is run on <set to listen on port 80> <returns "Holberton School" on curl>
+# installing nginx https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
+# setup https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP' # enables firewall to port 80
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx restart
