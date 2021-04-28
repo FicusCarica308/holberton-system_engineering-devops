@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# start nginx using nginx user
+sudo chmod 777 /etc/nginx/nginx.conf
+sudo echo "user nginx;" | sudo tee -a /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+sudo -u nginx service nginx restart
