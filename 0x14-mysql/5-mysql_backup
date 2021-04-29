@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # creates a tar backup of MYSQL dump
-mysqldump -u root -p "$1" --all-databases > backup.sql
+mysqldump --opt --all-databases -u root -p"$1" > backup.sql
 tar -zcvf "$(date +%d-%m-%Y)".tar.gz backup.sql
