@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Description:
     A Python script that, using this REST API
