@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     for user in user_dict:
         user_id = user['id']
-        todo_list = req.get('https://jsonplaceholder.typicode.com/users/{}/todos'.
-                            format(user_id)).json()
+        url = 'https://jsonplaceholder.typicode.com/users/{}/todos'
+        todo_list = req.get(url.format(user_id)).json()
         username = user['username']
 
         print_list = []
