@@ -16,11 +16,11 @@ def number_of_subscribers(subreddit):
                         format(subreddit))
     if subs.reason != 'OK':
         return 0
-    try:
-        resp = subs.json()
-    except:
-        return 0
+    resp = subs.json()
     if 'data' in resp:
-        return (subs.json()['data']['subscribers'])
+        try:
+            return (subs.json()['data']['subscribers'])
+        except:
+            return 0
     else:
         return (0)
