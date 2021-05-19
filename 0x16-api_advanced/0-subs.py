@@ -2,14 +2,14 @@
 """Module contains singular function"""
 import requests
 import json
-
+import uuid
 
 def number_of_subscribers(subreddit):
     """Finds the amount of subscribers from a given subreddit"""
     headers = requests.utils.default_headers()
     headers.update(
         {
-            'User-Agent': 'MannyAgent',
+            'User-Agent': 'MannyAgent - {}'.format(uuid.uuid4),
         }
     )
     subs = requests.get('https://www.reddit.com/r/{}/about.json'.
@@ -20,4 +20,5 @@ def number_of_subscribers(subreddit):
     if 'data' in resp:
         return (subs.json()['data']['subscribers'])
     else:
-        return (0)
+        print('made it')
+        return 0
