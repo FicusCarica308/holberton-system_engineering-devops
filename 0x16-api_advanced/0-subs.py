@@ -12,12 +12,12 @@ def number_of_subscribers(subreddit):
             'User-Agent': 'MannyAgent',
         }
     )
-    subs = requests.get('https://www.reddit.com/r/{}/about.json'.
+    subs_resp = requests.get('https://www.reddit.com/r/{}/about.json'.
                         format(subreddit))
-    if subs.reason != 'OK':
+    if subs_resp.reason != 'OK':
         return 0
-    resp = subs.json()
-    if 'data' in resp:
-        return (resp['data']['subscribers'])
-    else:
-        return (0)
+    resp = subs_resp.json()
+    try:
+        subs = resp['data']['subscribers']
+    except:
+        return 0
