@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     for task in todo_list:
         task_info = {}
-        task_info['title'] = task['title']
+        task_info['task'] = task['title']
         task_info['completed'] = task['completed']
         task_info['username'] = username
         print_list.append(task_info)
