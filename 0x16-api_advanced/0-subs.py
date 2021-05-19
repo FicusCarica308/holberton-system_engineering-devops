@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module contains singular function"""
 import requests
-import json
 
 
 def number_of_subscribers(subreddit):
@@ -14,8 +13,7 @@ def number_of_subscribers(subreddit):
     )
     subs = requests.get('https://www.reddit.com/r/{}/about.json'.
                         format(subreddit), headers=headers)
-    try:
-        num = subs.json()['data']['subscribers']
-        return num
-    except:
+    if subs.reason != 'OK':
         return 0
+    else:
+        return (subs.json()['data']['subscribers'])
