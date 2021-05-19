@@ -9,7 +9,7 @@ def number_of_subscribers(subreddit):
     headers = requests.utils.default_headers()
     headers.update(
         {
-            'User-Agent': 'MannyAgent v1',
+            'User-Agent': 'MannyAgent',
         }
     )
     subs = requests.get('https://www.reddit.com/r/{}/about.json'.
@@ -18,6 +18,6 @@ def number_of_subscribers(subreddit):
         return 0
     resp = subs.json()
     if 'data' in resp:
-        return (subs.json()['data']['subscribers'])
+        return (resp['data']['subscribers'])
     else:
         return (0)
