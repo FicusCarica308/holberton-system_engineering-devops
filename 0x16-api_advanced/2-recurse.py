@@ -29,7 +29,6 @@ def recurse(subreddit,  prev_title="NULL", hot_list=[]):
             return hot_list
         prev_title = topics['name']
         hot_list.append(topics['title'])
-        print(topics['title'])
         if prev_title not in [None, 'None', 'NULL']:
             return recurse(subreddit, prev_title, hot_list)
         return hot_list
