@@ -14,10 +14,10 @@ def top_ten(subreddit):
         }
     )
     subs = requests.get('https://www.reddit.com/r/{}/hot.json'.
-                        format(subreddit), headers=headers,
-                        param={'limit': 10})
+                        format(subreddit), headers=headers, params = {'limit': 10})
     if subs.reason != 'OK':
         print('None')
     else:
-        for item in subs.json()['data']['children']:
+        topics = subs.json()['data']['children']
+        for item in topics:
             print(item['data']['title'])
